@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"  >
+       
+       <h:head>
+	
+     	<title>Inscription - JSF</title>
+	
+      </h:head>
+       
+
+<h:body>
+	<h1>Page Accueil </h1>
+
+	<h:form>
+	  <p:panel header="Inscription">
+	    
+	        <h:panelGrid id="grid" columns="4" cellpadding="5" >
+	          <h:outputLabel for="nom" value="Nom:" style="font-weight:bold"/>                    
+	            <p:inputText id="nom" value="#{valideHome.nom}" required="true" label="Nom" />
+	            <p:message for="nom" />
+	            <h:outputText value="#{valideHome.nom}" />
+	            
+	            <h:outputLabel for="prenom" value="Prenom:" style="font-weight:bold"/>                    
+	            <p:inputText id="prenom" value="#{valideHome.prenom}" required="true" label="Prenom"/>
+	            <p:message for="prenom" />
+	            <h:outputText value="#{valideHome.prenom}" />
+	            
+	            <h:outputLabel for="login" value="Login:" style="font-weight:bold"/>                    
+	            <p:inputText id="login" value="#{valideHome.login}" required="true" label="Login">
+	            <f:validateLength minimum="4" maximum="10" /> 
+	            </p:inputText>
+	            <p:message for="login" />
+	            <h:outputText value="#{valideHome.login}" />
+	           
+	            
+		        <h:outputLabel for="mdp" value="Password:" style="font-weight:bold"/>
+	        	<p:password id="mdp" value="#{valideHome.mdp}"  label="Mot de passe" required="true" feedback="true"
+					        	promptLabel="Entrer un mot de passe" weakLabel="Faible"
+				                goodLabel="Moyen" strongLabel="Fort"/>
+			    <p:messages for="mdp" showDetail="true" autoUpdate="true" />
+	 
+	         
+	        <!--    <h:outputLabel for="role" value="role:" style="font-weight:bold"/>
+              <h:selectOneMenu id="role" value="#{valideHome.role}" required="true" label="role :">
+                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                <f:selectItem itemLabel="Admin" itemValue="1" />
+                <f:selectItem itemLabel="Client" itemValue="2" />
+                <f:selectItem itemLabel="Manager" itemValue="3" />
+            </h:selectOneMenu>
+            <p:message for="role" />
+            <h:outputText value="#{valideHome.role}" /> -->
+            
+            
+             <h:outputLabel for="role" value="role:" style="font-weight:bold"/>                    
+	            <p:inputText id="role" value="#{valideHome.role}" required="true" label="role">
+	            <f:validateLength minimum="4" maximum="10" /> 
+	            </p:inputText>
+	            <p:message for="login" />
+	            <h:outputText value="#{valideHome.role}" />
+	        </h:panelGrid>
+	        
+	       
+	        <p:commandButton value="Valider" update="grid" action = "#{valideHome.action}"  icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
+	   </p:panel>
+    </h:form>
+     
+</h:body>
+
+
+
+</html>

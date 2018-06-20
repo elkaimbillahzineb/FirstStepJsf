@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+		  
+<h:head>
+      <title>Affichage Listes des Managers</title>		
+      <h:outputStylesheet library = "css" name = "styles.css"  /> 	
+</h:head>
+<h:body>
+		
+		<h2>DataTable</h2>
+		<h:form>
+         <h:dataTable value = "#{infoList.infosListManager}" var = "v"
+            styleClass = "personneTable"
+            headerClass = "personneTableHeader"
+            rowClasses = "personneTableOddRow,personneTableEvenRow">
+            
+            <h:column>    				
+               <f:facet name = "header">Nom</f:facet>    				
+               #{v.nom}
+            </h:column>
+            
+            <h:column>
+               <f:facet name = "header">Prenom</f:facet>
+               #{v.prenom}
+            </h:column>
+            
+            
+            <h:column>
+               <f:facet name = "header">Login</f:facet>
+               #{v.login}
+            </h:column>
+            
+            <h:column>
+               <f:facet name = "header">Mot de passe</f:facet>
+               #{v.mdp}
+            </h:column>
+             <h:column>
+               <f:facet name = "header">Role</f:facet>
+               #{v.role}
+            </h:column>
+         </h:dataTable>
+      </h:form>
+</h:body>
+</html>
